@@ -28,6 +28,22 @@ func searchCustomer(s *server.MCPServer) {
 			return mcp.NewToolResultError("kundenNummer is required"), nil
 		}
 
-		return mcp.NewToolResultText(kundenNummer), nil
+		customer := &Customer{
+			CustomerID:  kundenNummer,
+			CompanyName: "QAware GmbH",
+			CompanyAddress: CompanyAddress{
+				Street:   "Aschauer Str. 20",
+				Postcode: "81549",
+				City:     "München",
+				Country:  "Germany",
+			},
+			ContactPerson: ContactPerson{
+				Firstname: "M.-Leander",
+				Lastname:  "Reimer",
+				Email:     "mlr@qaware.de",
+			},
+		}
+
+		return customer.ToJSON()
 	})
 }
