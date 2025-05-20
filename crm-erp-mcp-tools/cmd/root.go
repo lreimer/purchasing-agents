@@ -4,6 +4,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/lreimer/purchasing-agents/crm"
+	"github.com/lreimer/purchasing-agents/erp"
 	"github.com/mark3labs/mcp-go/server"
 	"github.com/spf13/cobra"
 )
@@ -27,6 +29,8 @@ var rootCmd = &cobra.Command{
 		)
 
 		// Add tools to the server
+		crm.AddCrmTools(s)
+		erp.AddErpTools(s)
 
 		// Only check for "sse" since stdio is the default
 		if transport == "sse" {
