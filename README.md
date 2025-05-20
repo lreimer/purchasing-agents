@@ -1,3 +1,6 @@
+[![Build and Test MCP Tools](https://github.com/lreimer/purchasing-agents/actions/workflows/build-mcp.yml/badge.svg)](https://github.com/lreimer/purchasing-agents/actions/workflows/build-mcp.yml)
+[![Docker Publish MCP Tools](https://github.com/lreimer/purchasing-agents/actions/workflows/docker-publish-mcp.yml/badge.svg)](https://github.com/lreimer/purchasing-agents/actions/workflows/docker-publish-mcp.yml)
+
 # Purchasing Agents
 
 A collection of purchasing agents that can help with customer enquiries.
