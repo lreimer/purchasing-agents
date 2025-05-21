@@ -63,6 +63,7 @@ gcloud services enable run.googleapis.com
 # deploy the MCP tool server first
 gcloud run deploy crm-erp-mcp-tools --source=crm-erp-mcp-tools/ \
   --region=europe-north1 \
+  --min=1 \
   --port=8001 --allow-unauthenticated \
   --set-env-vars=BASE_URL=https://crm-erp-mcp-tools-343509396461.europe-north1.run.app
 
@@ -72,6 +73,7 @@ export GOOGLE_API_KEY=<insert here>
 # we use plain gcloud CLI to perform the deployment
 gcloud run deploy purchasing-agents --source=. \
   --region=europe-north1 \
+  --min=1 \
   --port=8000 --allow-unauthenticated \
   --set-env-vars=MCP_SERVER_URL=https://crm-erp-mcp-tools-343509396461.europe-north1.run.app/sse,GOOGLE_API_KEY=$GOOGLE_API_KEY,GOOGLE_GENAI_USE_VERTEXAI=FALSE
 
