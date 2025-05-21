@@ -22,7 +22,7 @@ var rootCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		// Create a new MCP server
 		s := server.NewMCPServer(
-			"Google Cloud Platform API",
+			"Prcuhasing Tools",
 			version,
 			server.WithRecovery(),
 			server.WithLogging(),

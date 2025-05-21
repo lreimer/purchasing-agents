@@ -50,11 +50,18 @@ func getOrders(s *server.MCPServer) {
 			},
 		}
 
-		statusStrings := request.GetString("status", "offen")
+		kundenNummer := request.Params.Arguments["kundenNummer"].(string)
+		if kundenNummer == "" {
+			return mcp.NewToolResultError("kundenNummer is required"), nil
+		}
+		statusString := request.Params.Arguments["status"].(string)
+		if statusString == "" {
+			return mcp.NewToolResultError("status is required"), nil
+		}
 
 		filteredOrders := OrderList{}
 		for _, order := range orders {
-			if order.Status == statusStrings {
+			if order.Status == statusString {
 				filteredOrders = append(filteredOrders, order)
 			}
 		}

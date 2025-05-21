@@ -24,8 +24,8 @@ func searchCustomer(s *server.MCPServer) {
 	)
 
 	s.AddTool(tool, func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
-		kundenNummer, err := request.RequireString("kundenNummer")
-		if err != nil {
+		kundenNummer := request.Params.Arguments["kundenNummer"].(string)
+		if kundenNummer == "" {
 			return mcp.NewToolResultError("kundenNummer is required"), nil
 		}
 
