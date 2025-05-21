@@ -55,6 +55,7 @@ async def get_tools_async():
     if mcp_server_url is None:
         mcp_server_url = "http://localhost:8001/sse"
 
+    print(f"Connecting to MCP server at {mcp_server_url}...")
     tools, exit_stack = await MCPToolset.from_server(
         connection_params=SseServerParams(
             url=mcp_server_url,
@@ -101,6 +102,7 @@ async def get_agent_async():
             - search_customer: Sucht nach einem Kunden im CRM System und gibt die Kundendaten zurück.
         """,
         tools=[company_info, product_details] + tools,
+        tool_names=["company_info", "product_details"] + [tool.name for tool in tools],
     )
     return root_agent, exit_stack
 
