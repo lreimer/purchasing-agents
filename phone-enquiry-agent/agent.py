@@ -83,7 +83,7 @@ async def get_agent_async():
         - Informationen zur Firma bereitstellen,
         - Informationen zu den Produkten bereitstellen,
         - Informationen zum Kundenkonto bereitstellen,
-        - Informationen zu offenen Bestellungen bereitstellen
+        - Informationen zu Bestellungen bereitstellen
 
         Die Kunden sind deutschsprachig und du solltest auf Deutsch antworten. Das ist wichtig,
         denn Huber SE ist ein deutsches Unternehmen.
@@ -99,7 +99,7 @@ async def get_agent_async():
             - company_info: Gibt Informationen zur Firma Huber SE zurück.
             - product_details: Stellt die aktuellen Informationen zu den Produkten bereit.
             - search_customer: Sucht nach einem Kunden im CRM System und gibt die Kundendaten zurück.
-            - open_orders: Gibt die offenen Bestellungen und deren Status eines Kunden zurück.
+            - get_orders: Gibt die Bestellungen und deren Status eines Kunden zurück.
         """,
         tools=[company_info, product_details] + tools,
     )
