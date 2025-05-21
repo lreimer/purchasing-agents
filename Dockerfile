@@ -9,4 +9,4 @@ ENV PATH="/app/.venv/bin:/root/.local/bin:$PATH"
 RUN uv tool install google-adk
 
 EXPOSE 8000
-CMD ["uv", "run", "adk", "web", "--port=8000", "--allow_origins='*'"]
+CMD ["uv", "run", "adk", "web", "--host=0.0.0.0", "--port=8000", "--allow_origins='*'"]
