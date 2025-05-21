@@ -865,7 +865,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "google-adk", specifier = ">=1.0.0" }]
+requires-dist = [{ name = "google-adk", specifier = ">=0.5.0" }]
 
 [[package]]
 name = "pyasn1"
