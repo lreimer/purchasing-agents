@@ -2,6 +2,7 @@ package crm
 
 import (
 	"context"
+	"log"
 
 	"github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"
@@ -38,12 +39,13 @@ func searchCustomer(s *server.MCPServer) {
 				Country:  "Germany",
 			},
 			ContactPerson: ContactPerson{
-				Firstname: "M.-Leander",
+				Firstname: "Mario-Leander",
 				Lastname:  "Reimer",
 				Email:     "mlr@qaware.de",
 			},
 		}
 
+		log.Printf("Found customer: %s", kundenNummer)
 		return customer.ToJSON()
 	})
 }
