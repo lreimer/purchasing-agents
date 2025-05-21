@@ -1,10 +1,6 @@
 import dotenv
 import os
 
-from google.adk.agents import Agent
-from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset
-from google.adk.tools.mcp_tool.mcp_toolset import SseServerParams
-
 dotenv.load_dotenv()
 
 def company_info() -> dict:
