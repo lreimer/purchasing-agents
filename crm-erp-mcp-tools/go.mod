@@ -3,7 +3,7 @@ module github.com/lreimer/purchasing-agents
 go 1.24.2
 
 require (
-	github.com/mark3labs/mcp-go v0.28.0
+	github.com/mark3labs/mcp-go v0.29.0
 	github.com/spf13/cobra v1.9.1
 )
 

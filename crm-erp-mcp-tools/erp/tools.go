@@ -24,7 +24,6 @@ func getOrders(s *server.MCPServer) {
 			mcp.Description("Filtert Bestellungen nach Status (z.B. waiting, offen, verschickt). Default: offen"),
 			mcp.Enum("waiting", "offen", "verschickt"),
 			mcp.DefaultString("offen"),
-			mcp.Required(),
 		),
 	)
 
@@ -50,11 +49,11 @@ func getOrders(s *server.MCPServer) {
 			},
 		}
 
-		kundenNummer := request.Params.Arguments["kundenNummer"].(string)
+		kundenNummer := request.GetString("kundenNummer", "")
 		if kundenNummer == "" {
 			return mcp.NewToolResultError("kundenNummer is required"), nil
 		}
-		statusString := request.Params.Arguments["status"].(string)
+		statusString := request.GetString("status", "offen")
 		if statusString == "" {
 			return mcp.NewToolResultError("status is required"), nil
 		}

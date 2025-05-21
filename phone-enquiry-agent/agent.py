@@ -99,7 +99,6 @@ async def get_agent_async():
             - company_info: Gibt Informationen zur Firma Huber SE zurück.
             - product_details: Stellt die aktuellen Informationen zu den Produkten bereit.
             - search_customer: Sucht nach einem Kunden im CRM System und gibt die Kundendaten zurück.
-            - get_orders: Gibt die Bestellungen und deren Status eines Kunden zurück.
         """,
         tools=[company_info, product_details] + tools,
     )
