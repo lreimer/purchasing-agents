@@ -20,8 +20,11 @@ func getOrders(s *server.MCPServer) {
 			mcp.Description("Die Kundennummer des Kunden im CRM System"),
 			mcp.Required(),
 		),
-		mcp.WithArray("status",
-			mcp.Description("Filtert Bestellungen nach Status (z.B. waiting, offen, verschickt). Default: waiting, offen"),
+		mcp.WithString("status",
+			mcp.Description("Filtert Bestellungen nach Status (z.B. waiting, offen, verschickt). Default: offen"),
+			mcp.Enum("waiting", "offen", "verschickt"),
+			mcp.DefaultString("offen"),
+			mcp.Required(),
 		),
 	)
 
@@ -47,15 +50,12 @@ func getOrders(s *server.MCPServer) {
 			},
 		}
 
-		statusStrings := request.GetStringSlice("status", []string{"waiting", "offen"})
+		statusStrings := request.GetString("status", "offen")
 
 		filteredOrders := OrderList{}
 		for _, order := range orders {
-			for _, status := range statusStrings {
-				if order.Status == status {
-					filteredOrders = append(filteredOrders, order)
-					break
-				}
+			if order.Status == statusStrings {
+				filteredOrders = append(filteredOrders, order)
 			}
 		}
 		orders = filteredOrders
