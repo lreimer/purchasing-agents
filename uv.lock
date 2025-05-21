@@ -857,6 +857,17 @@ wheels = [
 ]
 
 [[package]]
+name = "purchasing-agents"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "google-adk" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "google-adk", specifier = ">=0.5.0" }]
+
+[[package]]
 name = "pyasn1"
 version = "0.6.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1155,17 +1166,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/ce/20/08dfcd9c983f6a6f4
 wheels = [
     { url = "https://files.pythonhosted.org/packages/8b/0c/9d30a4ebeb6db2b25a841afbb80f6ef9a854fc3b41be131d249a977b4959/starlette-0.46.2-py3-none-any.whl", hash = "sha256:595633ce89f8ffa71a015caed34a5b2dc1c0cdb3f0f1fbd1e69339cf2abeec35", size = 72037 },
 ]
-
-[[package]]
-name = "taxi-callcenter-agents"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "google-adk" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "google-adk", specifier = ">=0.5.0" }]
 
 [[package]]
 name = "typing-extensions"

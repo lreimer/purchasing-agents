@@ -101,8 +101,7 @@ async def get_agent_async():
             - product_details: Stellt die aktuellen Informationen zu den Produkten bereit.
             - search_customer: Sucht nach einem Kunden im CRM System und gibt die Kundendaten zurück.
         """,
-        tools=[company_info, product_details] + tools,
-        tool_names=["company_info", "product_details"] + [tool.name for tool in tools],
+        tools=[company_info, product_details] + tools
     )
     return root_agent, exit_stack
 
